@@ -1,6 +1,6 @@
 <html>
     <head>
-        <title>OctoPrint is still starting</title>
+        <title>Octizyx is still starting</title>
         <style>
             body {
                 margin: 0;
@@ -201,7 +201,7 @@
                         // our cached.gif loaded, so the index is cached now, let's reload
                         indexCached = true;
                         message.className = "pulsate1 green";
-                        message.innerText = "OctoPrint server ready, reloading page...";
+                        message.innerText = "Octizyx server ready, reloading page...";
                         reloadnow.style.display = "none";
 
                         reload();
@@ -219,7 +219,7 @@
                         // our online.gif loaded, so the server is up, let's wait for it to become ready
                         serverIsOnline = true;
 
-                        message.innerText = "OctoPrint server started, waiting for it to get ready...";
+                        message.innerText = "Octizyx server started, waiting for it to get ready...";
                         reloadnowlink.onclick = function() {
                             indexCached = true; // not really, but we fake it
 
@@ -267,7 +267,7 @@
                         }
 
                         message.className = "red";
-                        message.innerHTML = "Looks like something went wrong during startup, the server is gone again. You should check <code>octoprint.log</code>.";
+                        message.innerHTML = "Looks like something went wrong during startup of Octizyx, the server is gone again. You should check <code>octoprint.log</code>.";
                     } else {
                         setTimeout(function() {
                             ping(backendOnlineUrl, timeout, backendOnlineCallback);
@@ -282,12 +282,12 @@
     </head>
     <body>
         <div id="startup-overlay">
-            <div class="background"></div>
+            <div class="background"></div>²
             <div class="wrapper">
                 <div class="outer">
                     <div class="inner">
                         <div class="content">
-                            <h1 id="message" class="pulsate3">OctoPrint is still starting up, please wait...</h1>
+                            <h1 id="message" class="pulsate3">Octizyx is still starting up, please wait...</h1>
                             <small id="reloadnow" style="display: none"><a id="reloadnowlink" class="normal" href="javascript:void(0)">Don't wait, reload now!</a></small>
                         </div>
                     </div>
