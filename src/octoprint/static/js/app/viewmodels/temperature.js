@@ -834,7 +834,7 @@ $(function() {
         };
 
         self.initOrUpdate = function() {
-            if (OctoPrint.coreui.selectedTab !== "#temp" || !$("#temp").is(":visible")) {
+            if (OctoPrint.coreui.selectedTab !== "#control" || !$("#control").is(":visible")) {
                 // do not try to initialize the graph when it's not visible or its sizing will be off
                 return;
             }
