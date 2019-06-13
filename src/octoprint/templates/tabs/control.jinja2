@@ -136,6 +136,11 @@
     <button class="btn" data-bind="text: name, css: additionalClasses, enable: $root.isCustomEnabled($data), click: function() { $root.clickCustom($data) }"></button>
 </script>
 <!-- End of templates for custom controls -->
+{% if enableTemperatureGraph %}
+    <div class="row-fluid">
+        <div id="temperature-graph"></div>
+    </div>
+{% endif %}
 <div> <small> {{ _("coucouuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuu")}} </small> </div>
 {% if enableWebcam %}
     <div id="webcam_container" tabindex="0" data-bind="event: { keydown: onKeyDown, mouseover: onMouseOver, mouseout: onMouseOut, focus: onFocus }">
