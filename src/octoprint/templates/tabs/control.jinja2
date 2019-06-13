@@ -136,7 +136,7 @@
     <button class="btn" data-bind="text: name, css: additionalClasses, enable: $root.isCustomEnabled($data), click: function() { $root.clickCustom($data) }"></button>
 </script>
 <!-- End of templates for custom controls -->
-
+<div> <small> {{ _("coucouuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuu")}} </small> </div>
 {% if enableWebcam %}
     <div id="webcam_container" tabindex="0" data-bind="event: { keydown: onKeyDown, mouseover: onMouseOver, mouseout: onMouseOut, focus: onFocus }">
         <div class="nowebcam" data-bind="visible: !webcamLoaded()">
