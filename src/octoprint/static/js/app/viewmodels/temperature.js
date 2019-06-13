@@ -834,7 +834,7 @@ $(function() {
         };
 
         self.initOrUpdate = function() {
-            if (OctoPrint.coreui.selectedTab !== "#control" || !$("#control").is(":visible")) {
+            if (OctoPrint.coreui.selectedTab !== "#temp" || !$("#temp").is(":visible")) {
                 // do not try to initialize the graph when it's not visible or its sizing will be off
                 return;
             }
@@ -879,6 +879,6 @@ $(function() {
     OCTOPRINT_VIEWMODELS.push({
         construct: TemperatureViewModel,
         dependencies: ["loginStateViewModel", "settingsViewModel"],
-        elements: ["#control", "#temp_link", "#change_offset_dialog"]
+        elements: ["#temp", "#temp_link", "#change_offset_dialog"]
     });
 });
