@@ -191,7 +191,6 @@
             <th class="temperature_tool"></th>
             <th class="temperature_actual" title="{{ _('Current actual temperature as reported by your printer') }}">{{ _('Actual') }}</th>
             <th class="temperature_target" title="{{ _('Current target temperature as reported by your printer') }}">{{ _('Target') }}</th>
-            <th class="temperature_offset" title="{{ _('Offset to apply to temperature commands sent from files') }}">{{ _('Offset') }}</th>
         </tr>
         <!-- ko foreach: tools -->
         <tr data-bind="template: { name: 'temprow-template' }"></tr>
@@ -227,16 +226,6 @@
                         </li>
                         <!-- /ko -->
                     </ul>
-                </div>
-            </form>
-        </td>
-        <td class="temperature_offset">
-            <form class="form-inline" style="margin:0">
-                <div class="input-append">
-                    <span class="input-mini uneditable-input text-right" style="width: 30px" data-bind="text: offset"></span>
-                    <span class="add-on">&deg;C</span>
-                    <button class="btn" title="{{ _('Change Offset') }}" data-bind="click: $root.changeOffset, enable: $root.isOperational() && $root.loginState.isUser()"><i class="fa fa-pencil"></i></button>
-                    <button class="btn" title="{{ _('Delete Offset') }}" data-bind="click: $root.setOffsetToZero, enable: $root.isOperational() && $root.loginState.isUser()"><i class="fa fa-trash"></i></button>
                 </div>
             </form>
         </td>
