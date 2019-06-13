@@ -879,6 +879,6 @@ $(function() {
     OCTOPRINT_VIEWMODELS.push({
         construct: TemperatureViewModel,
         dependencies: ["loginStateViewModel", "settingsViewModel"],
-        elements: ["#control", "#temp_link", "#change_offset_dialog"]
+        elements: ["#temp", "#temp_link", "#change_offset_dialog"]
     });
 });
