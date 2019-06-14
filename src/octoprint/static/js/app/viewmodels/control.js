@@ -1395,7 +1395,6 @@ $(function() {
 
         self.onAfterTabChange = function() {
             self.initOrUpdate();
-            self.tabActive = current == "#control";
             self.updateOutput();
 
         };
