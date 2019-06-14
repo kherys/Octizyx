@@ -298,14 +298,14 @@ default_settings = {
 		"fuzzyTimes": True,
 		"components": {
 			"order": {
-				"navbar": ["settings", "systemmenu", "plugin_announcements", "plugin_pi_support", "login"],
+				"navbar": ["settings", "systemmenu", "plugin_pi_support", "login"],
 				"sidebar": ["plugin_printer_safety_check", "connection", "state", "files"],
 				"tab": ["temperature", "control", "gcodeviewer", "terminal", "timelapse"],
 				"settings": [
 					"section_printer", "serial", "printerprofiles", "temperatures", "terminalfilters", "gcodescripts",
 					"section_features", "features", "webcam", "accesscontrol", "gcodevisualizer", "api", "plugin_appkeys",
 					"section_octoprint", "server", "folders", "appearance", "plugin_logging", "plugin_pluginmanager",
-					"plugin_softwareupdate", "plugin_announcements", "plugin_backup", "plugin_tracking", "plugin_errortracking",
+					"plugin_softwareupdate", "plugin_backup", "plugin_tracking", "plugin_errortracking",
 					"plugin_pi_support"
 				],
 				"usersettings": ["access", "interface"],

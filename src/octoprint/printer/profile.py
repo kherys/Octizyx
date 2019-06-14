@@ -213,9 +213,9 @@ class PrinterProfileManager(object):
 		model = "Generic Tizyx Printer",
 		color = "default",
 		volume=dict(
-			width = 200,
-			depth = 200,
-			height = 200,
+			width = 250,
+			depth = 250,
+			height = 250,
 			formFactor = BedFormFactor.RECTANGULAR,
 			origin = BedOrigin.LOWERLEFT,
 			custom_box = False
@@ -231,10 +231,10 @@ class PrinterProfileManager(object):
 			sharedNozzle = False
 		),
 		axes=dict(
-			x = dict(speed=6000, inverted=False),
-			y = dict(speed=6000, inverted=False),
-			z = dict(speed=200, inverted=False),
-			e = dict(speed=300, inverted=False)
+			x = dict(speed=7200, inverted=False),
+			y = dict(speed=7200, inverted=False),
+			z = dict(speed=700, inverted=False),
+			e = dict(speed=6000, inverted=False)
 		)
 	)
 
