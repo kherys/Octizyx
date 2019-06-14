@@ -1393,6 +1393,10 @@ $(function() {
         self.onAfterTabChange = function() {
             self.initOrUpdate();
         };
+        self.AvanceVisible = ko.observable(false);
+        self.AvanceVisibility=  function(){
+             self.AvanceVisible(!self.AvanceVisible());
+         }
     }
 
     OCTOPRINT_VIEWMODELS.push({
