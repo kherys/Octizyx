@@ -209,8 +209,8 @@ class PrinterProfileManager(object):
 
 	default = dict(
 		id = "_default",
-		name = "DefaultTizyx",
-		model = "Generic Tizyx Printer",
+		name = "TiZYX",
+		model = "Generic TiZYX Printer",
 		color = "default",
 		volume=dict(
 			width = 250,

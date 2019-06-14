@@ -89,7 +89,7 @@ default_settings = {
 		"port": None,
 		"baudrate": None,
 		"exclusive": True,
-		"autoconnect": False,
+		"autoconnect": True,
 		"log": False,
 		"timeout": {
 			"detection": 1,
