@@ -1399,9 +1399,9 @@ $(function() {
             self.updateOutput();
 
         };
-        
+
         self.onAfterTabChange = function(current, previous) {
-            self.tabActive = current == "#term";
+            self.tabActive = current == "#control";
             self.updateOutput();
         };
         self.AvanceVisible = ko.observable(false);
