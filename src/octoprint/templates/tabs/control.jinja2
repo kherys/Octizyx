@@ -39,7 +39,7 @@
     </div>
 {% endif %}
 
-
+<br/>
 
 {% if enableTemperatureGraph %}
     <div class="row-fluid">
@@ -233,7 +233,12 @@
 </script>
 <!-- End of templates for custom controls -->
 
-<button type="button" data-bind="click: AvanceVisibility">Button 1</button>
+<br/>
+
+<button class="btn btn-primary btn-block" type="button" data-bind="click: AvanceVisibility">Button 1</button>
+
+<br/>
+
 <div data-bind="visible: AvanceVisible">
     <div class="terminal">
         <pre id="terminal-output" class="pre-scrollable pre-output" data-bind="foreach: displayedLines, visible: fancyFunctionality(), click: function(){ gotoTerminalCommand(); }, event: { scroll: terminalScrollEvent }"><span data-bind="text: line, css: {muted: type == 'filtered' || type == 'cut'}"></span></pre>
@@ -256,7 +261,7 @@
             {{ _('For performance reasons only a limited amount of terminal functionality is enabled right now.') }}
         </small>
     </div>
-
+<br/>
     <div class="row-fluid">
         <div class="span6" id="terminal-filterpanel">
             <div data-bind="foreach: filters, visible: fancyFunctionality()">
