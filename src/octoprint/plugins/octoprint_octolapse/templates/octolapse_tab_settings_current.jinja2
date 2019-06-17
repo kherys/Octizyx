@@ -1,0 +1,189 @@
+<!--
+##################################################################################
+# Octolapse - A plugin for OctoPrint used for making stabilized timelapse videos.
+# Copyright (C) 2017  Brad Hochgesang
+##################################################################################
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU Affero General Public License as published
+# by the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU Affero General Public License for more details.
+#
+# You should have received a copy of the GNU Affero General Public License
+# along with this program.  If not, see the following:
+# https://github.com/FormerLurker/Octolapse/blob/master/LICENSE
+#
+# You can contact the author either through the git-hub repository, or at the
+# following email address: FormerLurker@pm.me
+##################################################################################
+-->
+<script type="text/html" id="octolapse-settings-current">
+    <a href="#"
+       data-bind="css: {'muted': !hasConfigIssues(), 'text-error': hasConfigIssues()}, octolapseToggle: { class_showing: 'fa-caret-down', class_hiding: 'fa-caret-right', container: '#octolapse_status_settings_current_panel', toggle_observable: current_settings_showing }">
+        <i data-bind="visible: hasConfigIssues" class="fa fa-exclamation"> </i>Current Settings <i class="fa fa-no-shadow fa-caret-down"></i>
+    </a>
+    <div id="octolapse_status_settings_current_panel">
+
+        <table class="table table-striped table-hover table-condensed table-hover octolapse-profiles">
+            <thead>
+            <tr>
+                <th class="profile_name">Profile</th>
+                <th class="profile_description">Name</th>
+                <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>Printer</td>
+                <td>
+                    <select id="octolapse_tab_printer_profile"
+                            class="input-block-level"
+                            data-bind="
+                               enable: Octolapse.Globals.is_admin() && !Octolapse.Status.is_timelapse_active(),
+                               options: Octolapse.Status.printers_sorted,
+                               optionsText: 'name',
+                               optionsValue: 'guid',
+                               value: Octolapse.Status.current_printer_profile_guid,
+                               event: {change: Octolapse.Status.defaultPrinterChanged},
+                               optionsCaption: 'Please select...'">
+                    </select>
+                    <div data-bind="visible: !hasPrinterSelected()" class="text-error">
+                        <p>No printer is selected.</p>
+                    </div>
+                    <div data-bind="visible: !has_configured_printer_profile()" class="text-error">
+                        <p>The selected printer profile has not been configured. Please edit the profile and copy in your slicer settings.</p>
+                    </div>
+                </td>
+                <td>
+                    <a href="#" data-bind="visible: Octolapse.Globals.is_admin() && Octolapse.Status.current_printer_profile_guid() != null, click: openCurrentPrinterProfile">
+                        <i class="fa fa-gear fa-2x"></i>
+                    </a>
+                </td>
+            </tr>
+            <tr>
+                <td>Stabilization</td>
+                <td>
+                    <select id="octolapse_tab_stabilization_profile"
+                            class="input-block-level"
+                            data-bind="
+                                enable: Octolapse.Globals.is_admin() && !Octolapse.Status.is_timelapse_active(),
+                                options: Octolapse.Status.stabilizations_sorted,
+                                optionsText: 'name',
+                                optionsValue: 'guid',
+                                event: {change: Octolapse.Status.defaultStabilizationChanged},
+                                value: Octolapse.Status.current_stabilization_profile_guid"></select>
+
+                </td>
+                <td>
+                    <a href="#" data-bind="visible: Octolapse.Globals.is_admin() && Octolapse.Status.current_stabilization_profile_guid() != null, click: openCurrentStabilizationProfile">
+                        <i class="fa fa-gear fa-2x"></i>
+                    </a>
+                </td>
+            </tr>
+            <tr>
+                <td>Snapshot</td>
+                <td>
+                    <select id="octolapse_tab_snapshot_profile"
+                            class="input-block-level"
+                            data-bind="
+                                enable: Octolapse.Globals.is_admin() && !Octolapse.Status.is_timelapse_active(),
+                                options: Octolapse.Status.snapshots_sorted,
+                                optionsText: 'name',
+                                optionsValue: 'guid',
+                                event: {change: Octolapse.Status.defaultSnapshotChanged},
+                                value: Octolapse.Status.current_snapshot_profile_guid"></select>
+                </td>
+                <td>
+                    <a href="#" data-bind="visible: Octolapse.Globals.is_admin() && Octolapse.Status.current_snapshot_profile_guid() != null, click: openCurrentSnapshotProfile">
+                        <i class="fa fa-gear fa-2x"></i>
+                    </a>
+                </td>
+            </tr>
+            <tr>
+                <td>Rendering</td>
+                <td>
+                    <select id="octolapse_tab_rendering_profile"
+                            class="input-block-level"
+                            data-bind="
+                                enable: Octolapse.Globals.is_admin() && !Octolapse.Status.is_timelapse_active(),
+                                options: Octolapse.Status.renderings_sorted,
+                                optionsText: 'name',
+                                optionsValue: 'guid',
+                                event: {change: Octolapse.Status.defaultRenderingChanged},
+                                value: Octolapse.Status.current_rendering_profile_guid"></select>
+                </td>
+                <td class="text-right">
+                    <a href="#" data-bind="visible: Octolapse.Globals.is_admin() && Octolapse.Status.current_rendering_profile_guid() != null, click: openCurrentRenderingProfile">
+                        <i class="fa fa-gear fa-2x"></i>
+                    </a>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Cameras
+                </td>
+                <td colspan="2">
+                    <div data-bind="template:'octolapse-tab-settings-current-cameras'"></div>
+                </td>
+            </tr>
+            <tr>
+                <td>Debug</td>
+                <td>
+                    <select id="octolapse_tab_debug_profile"
+                            class="input-block-level"
+                            data-bind="
+                                enable: Octolapse.Globals.is_admin(),
+                                options: Octolapse.Status.debug_sorted,
+                                optionsText: 'name',
+                                optionsValue: 'guid',
+                                event: {change: Octolapse.Status.defaultDebugProfileChanged},
+                                value: Octolapse.Status.current_debug_profile_guid"></select>
+                </td>
+                <td>
+                    <a href="#" data-bind="visible: Octolapse.Globals.is_admin() && Octolapse.Status.current_debug_profile_guid() != null, click: openCurrentDebugProfile">
+                        <i class="fa fa-gear fa-2x"></i>
+                    </a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+        <div class="row-fluid" data-bind="visible:Octolapse.Globals.is_admin">
+            <div class="span3 text-center">
+                <div>Trigger State</div>
+                <label class="toggle-switch-fa" data-bind="attr: {title: (!Octolapse.Globals.show_trigger_state_changes() ? 'Enable the info panel' : (!is_timelapse_active() ? 'The info panel will display when a timelapse is active.' : 'Disable the info panel') )}">
+                  <input type="checkbox" data-bind="checked: Octolapse.Globals.show_trigger_state_changes(), click: function() {toggleInfoPanel('show_trigger_state_changes');}" >
+                  <span class="fa-slider" data-bind="style: { 'background-color': (Octolapse.Globals.enabled() && is_timelapse_active()) ? '' : 'lightgray' }" ><i class="fa icon-circle fa-inverse"></i></span>
+                </label>
+            </div>
+            <div class="span3 text-center">
+                <div>Extruder State</div>
+                <label class="toggle-switch-fa" data-bind="attr: {title: (!Octolapse.Globals.show_extruder_state_changes() ? 'Enable the info panel' : (!is_timelapse_active() ? 'The info panel will display when a timelapse is active.' : 'Disable the info panel') )}">
+                  <input type="checkbox" data-bind="checked: Octolapse.Globals.show_extruder_state_changes(), click: function() {toggleInfoPanel('show_extruder_state_changes');}" >
+                  <span class="fa-slider" data-bind="style: { 'background-color': (Octolapse.Globals.enabled() && is_timelapse_active()) ? '' : 'lightgray' }" ><i class="fa icon-circle fa-inverse"></i></span>
+                </label>
+            </div>
+            <div class="span3 text-center">
+                <div>Position State</div>
+                <label class="toggle-switch-fa" data-bind="attr: {title: (!Octolapse.Globals.show_position_state_changes() ? 'Enable the info panel' : (!is_timelapse_active() ? 'The info panel will display when a timelapse is active.' : 'Disable the info panel') )}">
+                  <input type="checkbox" data-bind="checked: Octolapse.Globals.show_position_state_changes(), click: function() {toggleInfoPanel('show_position_state_changes');}" >
+                  <span class="fa-slider" data-bind="style: { 'background-color': (Octolapse.Globals.enabled() && is_timelapse_active()) ? '' : 'lightgray'}" ><i class="fa icon-circle fa-inverse"></i></span>
+                </label>
+            </div>
+            <div class="span3 text-center">
+                <div>Position Changes</div>
+                <label class="toggle-switch-fa" data-bind="attr: {title: (!Octolapse.Globals.show_position_changes() ? 'Enable the info panel' : (!is_timelapse_active() ? 'The info panel will display when a timelapse is active.' : 'Disable the info panel') )}">
+                  <input type="checkbox" data-bind="checked: Octolapse.Globals.show_position_changes(), click: function() {toggleInfoPanel('show_position_changes');}" >
+                  <span class="fa-slider" data-bind="style: { 'background-color': (Octolapse.Globals.enabled() && is_timelapse_active()) ? '' : 'lightgray' }" ><i class="fa icon-circle fa-inverse"></i></span>
+                </label>
+            </div>
+
+
+        </div>
+    </div>
+</script>
+
+{% include "octolapse_tab_settings_current_cameras.jinja2" %}
