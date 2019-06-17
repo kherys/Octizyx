@@ -96,7 +96,7 @@ $(function() {
             if (self.name())
                 return self.name();
             else
-                return gettext("OctoPrint");
+                return gettext("Octizyx");
         });
 
         self.fullbrand = ko.pureComputed(function() {
@@ -108,9 +108,9 @@ $(function() {
 
         self.title = ko.pureComputed(function() {
             if (self.name())
-                return self.name() + " [" + gettext("OctoPrint") + "]";
+                return self.name() + " [" + gettext("Octizyx") + "]";
             else
-                return gettext("OctoPrint");
+                return gettext("Octizyx");
         });
     }
 

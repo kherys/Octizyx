@@ -572,8 +572,8 @@ def fetch_template_data(refresh=False):
 
 	templates["tab"]["entries"] = dict(
 		control=(gettext("Control"), dict(template="tabs/control.jinja2", _div="control")),
-		gcodeviewer=(gettext("GCode Viewer"), dict(template="tabs/gcodeviewer.jinja2", _div="gcode")),
-		timelapse=(gettext("Timelapse"), dict(template="tabs/timelapse.jinja2", _div="timelapse"))
+		timelapse=(gettext("Timelapse"), dict(template="tabs/timelapse.jinja2", _div="timelapse")),
+		gcodeviewer=(gettext("GCode Viewer"), dict(template="tabs/gcodeviewer.jinja2", _div="gcode"))
 	)
 
 	# settings dialog
