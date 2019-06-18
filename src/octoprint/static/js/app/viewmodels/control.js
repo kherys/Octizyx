@@ -1436,7 +1436,7 @@ $(function() {
         self.acceptableUnfancyTime = 300;
         self.reenableTimeout = 5000;
 
-        self.forceFancyFunctionality = ko.observable(false);
+        self.forceFancyFunctionality = ko.observable(true);
         self.forceTerminalLogDuringPrinting = ko.observable(false);
 
         self.fancyFunctionality = ko.pureComputed(function() {
