@@ -41,6 +41,8 @@
 
 <br/>
 
+<div id="temp">
+
 {% if enableTemperatureGraph %}
     <div class="row-fluid">
         <div id="temperature-graph"></div>
@@ -93,7 +95,7 @@
         </td>
     </script>
 </div>
-
+</div>
 
 <div class="jog-panel" style="display: none;" data-bind="visible: loginState.isUser">
     <!-- XY jogging control panel -->
@@ -238,7 +240,7 @@
 <button class="btn btn-primary btn-block" type="button" data-bind="click: AvanceVisibility">Terminal</button>
 
 <br/>
-<div id="terminal">
+<div id="term">
 <div data-bind="visible: AvanceVisible">
     <div class="terminal">
         <pre id="terminal-output" class="pre-scrollable pre-output" data-bind="foreach: displayedLines, visible: fancyFunctionality(), click: function(){ gotoTerminalCommand(); }, event: { scroll: terminalScrollEvent }"><span data-bind="text: line, css: {muted: type == 'filtered' || type == 'cut'}"></span></pre>
