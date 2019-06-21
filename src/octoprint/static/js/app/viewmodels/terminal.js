@@ -2,6 +2,7 @@ $(function() {
     function myTerminalViewModel(parameters) {
         var self = this;
 
+
         self.loginState = parameters[0];
         self.settings = parameters[1];
 
@@ -424,6 +425,12 @@ $(function() {
             self.updateOutput();
         };
 
+
+        //ajout
+        self.AvanceVisible = ko.observable(false);
+        self.AvanceVisibility=  function(){
+             self.AvanceVisible(!self.AvanceVisible());
+         }
     }
 
     OCTOPRINT_VIEWMODELS.push({
