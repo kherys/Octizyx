@@ -429,6 +429,6 @@ $(function() {
     OCTOPRINT_VIEWMODELS.push({
         construct: myTerminalViewModel,
         dependencies: ["loginStateViewModel", "settingsViewModel"],
-        elements: ["#myterm"]
+        elements: ["#myterm", "#term"]
     });
 });
