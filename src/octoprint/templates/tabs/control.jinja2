@@ -234,11 +234,11 @@
 <!-- End of templates for custom controls -->
 
 <br/>
-
+<div id="myterm">
 <button class="btn btn-primary btn-block" type="button" data-bind="click: AvanceVisibility">Terminal</button>
 
 <br/>
-<div id="myterm">
+
     <div data-bind="visible: AvanceVisible">
         <div class="terminal">
             <pre id="terminal-output" class="pre-scrollable pre-output" data-bind="foreach: displayedLines, visible: fancyFunctionality(), click: function(){ gotoTerminalCommand(); }, event: { scroll: terminalScrollEvent }"><span data-bind="text: line, css: {muted: type == 'filtered' || type == 'cut'}"></span></pre>
