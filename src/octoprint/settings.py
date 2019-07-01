@@ -189,13 +189,13 @@ default_settings = {
 			"serverRestartCommand": None
 		},
 		"onlineCheck": {
-			"enabled": None,
+			"enabled": True,
 			"interval": 15 * 60, # 15 min
 			"host": "8.8.8.8",
 			"port": 53
 		},
 		"pluginBlacklist": {
-			"enabled": None,
+			"enabled": True,
 			"url": "https://plugins.octoprint.org/blacklist.json",
 			"ttl": 15 * 60 # 15 min
 		},
