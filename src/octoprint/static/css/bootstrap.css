@@ -231,7 +231,7 @@ body {
 }
 
 a {
-  color: #0088cc;
+  color: #71C6D9;
   text-decoration: none;
 }
 
@@ -3948,7 +3948,7 @@ input[type="submit"].btn.btn-mini {
 .nav-list > .active > a:hover {
   color: #ffffff;
   text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.2);
-  background-color: #0088cc;
+  background-color: #72C6D9;
 }
 
 .nav-list [class^="icon-"],
@@ -4014,6 +4014,7 @@ input[type="submit"].btn.btn-mini {
   -webkit-border-radius: 4px 4px 0 0;
      -moz-border-radius: 4px 4px 0 0;
           border-radius: 4px 4px 0 0;
+  color: #555;
 }
 
 .nav-tabs > li > a:hover {
@@ -4022,7 +4023,7 @@ input[type="submit"].btn.btn-mini {
 
 .nav-tabs > .active > a,
 .nav-tabs > .active > a:hover {
-  color: #555555;
+  color: #71C6D9;
   cursor: default;
   background-color: #ffffff;
   border: 1px solid #ddd;
