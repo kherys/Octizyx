@@ -1,0 +1,13 @@
+#!/bin/bash
+
+sudo apt-get update
+sudo apt-get –y install python-pip python-dev python-setuptools python-virtualenv git libyaml-dev build-essential samba
+git clone http://github.com/kherys/Octizyx
+cd Octizyx
+virtualenv venv
+./venv/bin/pip install pip --upgrade
+./venv/bin/python setup.py install
+cd
+mkdir .octoprint
+sudo usermod -a -G tty pi
+sudo usermod -a -G dialout pi
