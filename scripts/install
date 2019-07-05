@@ -1,37 +1,32 @@
 #!/bin/bash
-echo -e "#### mise à jour ####\n" 
-sudo apt-get update
+
 echo "#### installation des dépendances ####\n"
-sudo apt-get –y install python-pip python-dev python-setuptools python-virtualenv git libyaml-dev build-essential samba
-echo -e "#### clone dépot git ####\n"
-git clone http://github.com/kherys/Octizyx
-cd Octizyx
+sudo apt-get –y install python-pip python-dev python-setuptools python-virtualenv libyaml-dev build-essential samba
 echo -e "####  création virtual environment ####\n" 
 virtualenv ~/Octizyx/venv
 echo -e "####  pip upgrade && python install ####\n" 
 ~/Octizyx/venv/bin/pip install pip --upgrade
-~/Octizyx/venv/bin/python setup.py install
-cd
-mkdir .octoprint
+~/Octizyx/venv/bin/python ~/Octizyx/setup.py install
+mkdir ~/.octoprint
 sudo usermod -a -G tty pi
 sudo usermod -a -G dialout pi
 echo -e "#### demarrage auto Octizyx ####\n" 
-sudo mv octoprint.init /etc/init.d/octoprint
-sudo mv octoprint.default /etc/default/octoprint
+sudo mv ~/Octizyx/scripts/octoprint.init /etc/init.d/octoprint
+sudo mv ~/Octizyx/scripts/octoprint.default /etc/default/octoprint
 sudo chmod +x /etc/init.d/octoprint
 sudo update-rc.d octoprint defaults
 
 echo -e "#### install mjpg-streamer ####\n" 
 cd ~
 sudo apt-get -y install subversion libjpeg62-turbo-dev imagemagick ffmpeg libv4l-dev cmake
-git clone https://github.com/jacksonliam/mjpg-streamer.git
-cd mjpg-streamer/mjpg-streamer-experimental
+git clone https://github.com/jacksonliam/mjpg-streamer.git ~
+cd ~/mjpg-streamer/mjpg-streamer-experimental
 export LD_LIBRARY_PATH=.
 make
 
 echo -e "#### ajout webcam dans Octizyx ####\n" 
 nom='hostname'
-echo -e "\nwebcam:\n\tstream: http://$nom:8080/?action=stream\n\tsnapshot: http://127.0.0.1:8080/?action=snapshot\n\tffmpeg: /usr/bin/ffmpeg"
+echo -e "\nwebcam:\n\tstream: http://$nom:8080/?action=stream\n\tsnapshot: http://127.0.0.1:8080/?action=snapshot\n\tffmpeg: /usr/bin/ffmpeg\n\tstreamRatio: '4:3'"
 
 echo "#### démarrage auto webcam ####"
 sudo chmod +x ~/Octizyx/scripts/web*
@@ -40,5 +35,5 @@ sudo sed -i  "/exit 0/i\\/home\/pi\/Octizyx\/scripts\/webcam start" /etc/rc.loca
 
 
 echo -e "#### ajout Octolapse ####\n"
-./venv/bin/pip install --upgrade pip
-./venv/bin/pip install “https://github.com/kherys/Octolapse/archive/master.zip”
+~/Octizyx/venv/bin/pip install --upgrade pip
+~/Octizyx/venv/bin/pip install “https://github.com/kherys/Octolapse/archive/master.zip”
