@@ -7,10 +7,10 @@ echo -e "#### clone dépot git ####\n"
 git clone http://github.com/kherys/Octizyx
 cd Octizyx
 echo -e "####  création virtual environment ####\n" 
-virtualenv venv
+virtualenv ~/Octizyx/venv
 echo -e "####  pip upgrade && python install ####\n" 
-./venv/bin/pip install pip --upgrade
-./venv/bin/python setup.py install
+~/Octizyx/venv/bin/pip install pip --upgrade
+~/Octizyx/venv/bin/python setup.py install
 cd
 mkdir .octoprint
 sudo usermod -a -G tty pi
