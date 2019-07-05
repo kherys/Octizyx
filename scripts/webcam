@@ -3,7 +3,7 @@
 
 case "$1" in
     start)
-        /home/pi/scripts/webcamDaemon >/dev/null 2>&1 &
+        /home/pi/Octizyx/scripts/webcamDaemon >/dev/null 2>&1 &
         echo "$0: started"
         ;;
     stop)
